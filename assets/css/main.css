@@ -162,6 +162,7 @@ header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    height: 7.5rem;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -187,6 +188,11 @@ header .logo h2 {
     color: var(--purple);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
+}
+
+header .logo img {
+    height: 7.5rem;
+    width: auto;
 }
 
 header .navbar a {
@@ -226,7 +232,7 @@ header #menu-btn:hover {
 
 /*--------------------- 4- Home Area CSS (Start) ---------------------*/
 .home {
-    padding: 0rem 5%;
+    padding: 2rem 5%;
     background-color: var(--black);
     min-height: 100vh;
 }
@@ -323,7 +329,7 @@ header #menu-btn:hover {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 2rem 0;
+    padding: 3rem 0;
 }
 
 .about .image {
@@ -637,6 +643,7 @@ header #menu-btn:hover {
 
 .blog-item {
     height: 60rem;
+    min-height: 60rem;
     background-color: #2222223c;
     border: 0.1rem solid rgba(0, 0, 0, 0.1);
     border-radius: 0.5rem;
@@ -646,6 +653,7 @@ header #menu-btn:hover {
 .blog-item .image {
     height: 25rem;
     margin: auto;
+    margin-top: 15px;
     overflow: hidden;
 
 }
@@ -708,7 +716,8 @@ header #menu-btn:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 160px;
+    max-width: 160px;
+    min-width: 140px;
     height: 40px;
     position: fixed;
     bottom: 20px;
@@ -831,32 +840,6 @@ header #menu-btn:hover {
     font-size: 14px;
 }
 
-.fecharAdmin {
-    background: #cc1616;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #ffffff;
-    margin: 10px;
-    display: block;
-    margin-right: 0;
-    margin-left: auto;
-    font-size: 14px;
-}
-
-.salvarEvento {
-    width: 100%;
-    background: #16CC6B;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 2rem;
-}
-
 .modal-conteudo input,
 .modal-conteudo textarea {
     width: 100%;
@@ -864,17 +847,6 @@ header #menu-btn:hover {
     padding: 8px;
     border-radius: 6px;
     border: none;
-}
-
-.salvarEvento {
-    width: 100%;
-    background: #16CC6B;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-size: 2rem;
 }
 
 .agenda .fc-toolbar {
@@ -887,37 +859,8 @@ header #menu-btn:hover {
     gap: 1rem;
 }
 
-.fecharSenha {
-    background: #cc1616;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #ffffff;
-    margin: 10px;
-    display: block;
-    margin-right: 0;
-    margin-left: auto;
-    font-size: 14px;
-}
-
-.btnEntrarAdmin {
-    width: 100px;
-    background: #16CC6B;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    cursor: pointer;
-    color: #ffffff;
-    margin: 10px;
-    font-size: 14px;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
 .modalData {
-    margin-top: 10px;
+    margin-top: 12px;
     font-size: 1.8rem;
     opacity: 0.8;
     margin-left: auto;
@@ -926,50 +869,8 @@ header #menu-btn:hover {
 }
 
 .modalDescricao {
-    margin-top: 10px;
+    margin-top: 14px;
     line-height: 1.4;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
-.acoesAdmin {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.btnEditar {
-    width: 100pt;
-    height: 40px;
-    background: #FFA500;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    margin-top: 10px;
-    font-size: 2rem;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
-.btnExcluir {
-    width: 100pt;
-    height: 40px;
-    background: #cc1616;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    margin-top: 10px;
-    font-size: 2rem;
     margin-left: auto;
     margin-right: auto;
     display: table;
@@ -978,6 +879,17 @@ header #menu-btn:hover {
 .fc-toolbar-title,
 .fc-button {
     color: white;
+}
+
+.btnGoogle {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    color: var(--purple);
+    background-color: transparent;
+    border: 0.2rem solid var(--purple);
+    margin-top: 1.5rem;
+    border-radius: 5rem;
 }
 
 .fc-button {
@@ -993,7 +905,25 @@ header #menu-btn:hover {
     max-width: 500px;
 }
 
+/* Remove QUALQUER estado de seleção/foco visual */
+.fc-event,
+.fc-event:focus,
+.fc-event:active,
+.fc-event.fc-event-selected,
+.fc-daygrid-event.fc-event-selected {
+    outline: none !important;
+    box-shadow: none !important;
+}
 
+/* Impede fundo azul aplicado internamente */
+.fc .fc-daygrid-event.fc-event-selected {
+    background-color: var(--fc-event-bg-color, inherit) !important;
+}
+
+/* Evita que o navegador mantenha foco ao clicar */
+.fc-event {
+    user-select: none;
+}
 
 
 
@@ -1020,6 +950,10 @@ header #menu-btn:hover {
     gap: 2rem;
 }
 
+.heading {
+    margin-bottom: 0.5rem;
+}
+
 .contact-info {
     -webkit-box-flex: 1;
     -ms-flex: 1 1 42rem;
@@ -1032,9 +966,25 @@ header #menu-btn:hover {
 }
 
 .contact-info>p {
-    font-size: 1.6rem;
+    font-size: 2rem;
     color: var(--grey);
     padding: 0.5rem 0;
+}
+
+.linkedin {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 24px;
+    padding: 1rem 0;
+    margin-left: 1rem;
+}
+
+.github {
+    text-decoration: none;
+    color: var(--grey);
+    font-size: 24px;
+    padding: 1rem 0;
+    margin-left: 1rem;
 }
 
 .contact-info .info-item {
@@ -1075,7 +1025,13 @@ header #menu-btn:hover {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+}
+
+#msg {
+    font-size: 1.8rem;
+    color: white;
+    padding-bottom: 1rem;
 }
 
 .contact-info .info-item .detail p {
