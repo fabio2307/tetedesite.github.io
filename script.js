@@ -1,3 +1,5 @@
+let blogSwiper;
+
 async function carregarBlog() {
   try {
     const response = await fetch("blog.json");
@@ -12,13 +14,9 @@ async function carregarBlog() {
 
       const date = new Date(post.date).toLocaleDateString("pt-BR");
 
-      // ✅ Tratamento inteligente da descrição
       let description = post.description || post.content || "";
-
-      // Remove HTML se existir
       description = description.replace(/<[^>]*>?/gm, "");
 
-      // Limita tamanho
       if (description.length > 120) {
         description = description.substring(0, 120) + "...";
       }
@@ -28,18 +26,15 @@ async function carregarBlog() {
           <img src="${post.thumbnail && post.thumbnail !== ''
           ? post.thumbnail
           : 'assets/images/Blogs/blog-1.png'
-        }" 
-          alt="${post.platform}" />
+        }" alt="${post.platform}" />
         </div>
 
         <div class="content">
           <div class="intro">
-            <h5>
-              <i class="fas fa-calendar-alt"></i>
+            <h5><i class="fas fa-calendar-alt"></i>
               <span>${date}</span>
             </h5>
-            <h5>
-              <i class="fas fa-user"></i>
+            <h5><i class="fas fa-user"></i>
               <span>por admin</span>
             </h5>
           </div>
@@ -59,26 +54,39 @@ async function carregarBlog() {
       container.appendChild(slide);
     });
 
-    // 🔄 Inicializa Swiper só se ainda não existir
-    if (typeof Swiper !== "undefined") {
-      new Swiper(".blog-slider", {
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination2",
-          clickable: true,
-        },
-        breakpoints: {
-          0: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        },
-      });
+    // 🔥 Destrói swiper antigo se existir
+    if (blogSwiper) {
+      blogSwiper.destroy(true, true);
     }
+
+    // 🔥 Cria novamente após os slides existirem
+    /*blogSwiper = new Swiper(".blog-slider", {
+      spaceBetween: 20,
+      speed: 600, // movimento mais suave
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".swiper-pagination2",
+        clickable: true,
+      },
+
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          loop: false, // 🔥 desativa loop no mobile
+        },
+        768: {
+          slidesPerView: 2,
+          loop: true,
+        },
+        1024: {
+          slidesPerView: 3,
+          loop: true,
+        },
+      },
+    });*/
 
   } catch (error) {
     console.error("Erro ao carregar blog:", error);
