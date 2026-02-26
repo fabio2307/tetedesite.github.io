@@ -59,7 +59,7 @@ async function carregarBlog() {
     });
 
     // 🔄 Inicializa Swiper só se ainda não existir
-    if (typeof Swiper !== "undefined") {
+    /*if (typeof Swiper !== "undefined") {
       new Swiper(".blog-slider", {
         spaceBetween: 20,
         loop: true,
@@ -77,7 +77,7 @@ async function carregarBlog() {
           1024: { slidesPerView: 3 },
         },
       });
-    }
+    }*/
 
   } catch (error) {
     console.error("Erro ao carregar blog:", error);
