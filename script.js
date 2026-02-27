@@ -60,7 +60,7 @@ async function carregarBlog() {
     }
 
     // 🔥 Cria novamente após os slides existirem
-    blogSwiper = new Swiper(".blog-slider", {
+    /*blogSwiper = new Swiper(".blog-slider", {
       spaceBetween: 20,
       loop: true,
       autoplay: {
@@ -76,7 +76,7 @@ async function carregarBlog() {
         768: { slidesPerView: 2 },
         1024: { slidesPerView: 3 },
       },
-    });
+    });*/
 
   } catch (error) {
     console.error("Erro ao carregar blog:", error);
